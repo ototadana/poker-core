@@ -70,6 +70,9 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function sortByRank(cards) {
+    cards.sort(function(a, b){
+      return 0;
+    });
   }
 
   function isRoyal(cards) {
