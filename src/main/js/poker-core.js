@@ -73,7 +73,7 @@ poker.core.getHandCategory = function(cards) {
     if(!isStraight(cards)) {
       return false;
     }
-    return false;
+    return cards[0].rank == 10;
   }
 }
 
