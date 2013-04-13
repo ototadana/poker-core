@@ -63,6 +63,10 @@ poker.core.getHandCategory = function(cards) {
     return isThreeOfAKind() && isOnePair();
   }
 
+  function isThreeOfAKind(cards) {
+    return isNumberOfAKind(cards, 3);
+  }
+
   function isFourOfAKind(cards) {
     var counts = getCountsOfRank(cards);
     for(var i = 0; i < counts.length; i++) {
