@@ -62,6 +62,9 @@ poker.core.getHandCategory = function(cards) {
     sortByRank(cards);
     var rank = cards[0].rank;
     for(var i = 0; i < cards.length; i++) {
+      if(rank + i != cards[i].rank && !(rank + i == 14 && cards[i].rank == 1)) {
+        return false;
+      }
     }
     return true;
   }
