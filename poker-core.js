@@ -51,5 +51,9 @@ poker.core.getHandCategory = function(cards) {
   function isFlush(cards) {
     return false;
   }
+
+  function isStraight(cards) {
+    return false;
+  }
 }
 
