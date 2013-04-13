@@ -68,9 +68,13 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function isFourOfAKind(cards) {
+    return isNumberOfAKind(cards, 4);
+  }
+
+  function isNumberOfAKind(cards, number) {
     var counts = getCountsOfRank(cards);
     for(var i = 0; i < counts.length; i++) {
-      if(counts[i] == 4) {
+      if(counts[i] == number) {
         return true;
       }
     }
