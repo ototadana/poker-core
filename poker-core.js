@@ -49,6 +49,9 @@ poker.core.getHandCategory = function(cards) {
   if(isFullHouse(cards)) {
     return poker.handCategory.FULL_HOUSE;
   }
+  if(isFlush(cards)) {
+    return poker.handCategory.FLUSH;
+  }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
