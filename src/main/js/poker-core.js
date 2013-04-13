@@ -43,6 +43,9 @@ poker.core.getHandCategory = function(cards) {
   if(isStraightFlush(cards)) {
     return poker.handCategory.STRAIGHT_FLUSH;
   }
+  if(isFourOfAKind(cards)) {
+    return poker.handCategory.FOUR_OF_A_KIND;
+  }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
