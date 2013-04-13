@@ -51,6 +51,9 @@ poker.core.getHandCategory = function(cards) {
   function isFlush(cards) {
     var suit;
     for(var i = 0; i < cards.length; i++) {
+      if(!suit) {
+        suit = cards[i].suit;
+      }
     }
     return true;
   }
