@@ -60,7 +60,7 @@ poker.core.getHandCategory = function(cards) {
   return poker.handCategory.HIGH_CARD;
 
   function isFullHouse(cards) {
-    return false;
+    return isThreeOfAKind() && isOnePair();
   }
 
   function isFourOfAKind(cards) {
