@@ -45,7 +45,7 @@ poker.core.getHandCategory = function(cards) {
   return poker.handCategory.HIGH_CARD;
 
   function isRoyalFlush(cards) {
-    return isFlush(cards) && isStraight(cards) && isRoyal(cards);
+    return isFlush(cards) && isRoyal(cards);
   }
 
   function isFlush(cards) {
@@ -66,6 +66,9 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function isRoyal(cards) {
+    if(!isStraight(cards)) {
+      return false;
+    }
     return false;
   }
 }
