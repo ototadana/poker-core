@@ -49,6 +49,8 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function isFlush(cards) {
+    for(var i = 0; i < cards.length; i++) {
+    }
     return false;
   }
 
