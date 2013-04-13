@@ -77,6 +77,9 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function isTwoPair(cards) {
+    var counts = getCountsOfRank(cards);
+    for(var i = 0; i < counts.length; i++) {
+    }
     return false;
   }
 
