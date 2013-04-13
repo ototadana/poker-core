@@ -49,9 +49,10 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function isFlush(cards) {
+    var suit;
     for(var i = 0; i < cards.length; i++) {
     }
-    return false;
+    return true;
   }
 
   function isStraight(cards) {
