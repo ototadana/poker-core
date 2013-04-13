@@ -52,6 +52,9 @@ poker.core.getHandCategory = function(cards) {
   if(isFlush(cards)) {
     return poker.handCategory.FLUSH;
   }
+  if(isStraight(cards)) {
+    return poker.handCategory.STRAIGHT;
+  }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
