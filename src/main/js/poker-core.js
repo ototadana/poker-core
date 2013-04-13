@@ -80,7 +80,7 @@ poker.core.getHandCategory = function(cards) {
       if(b.rank == 1) {
         return -1;
       }
-      return 0;
+      return a.rank - b.rank;
     });
   }
 
