@@ -58,6 +58,9 @@ poker.core.getHandCategory = function(cards) {
   if(isThreeOfAKind(cards)) {
     return poker.handCategory.THREE_OF_A_KIND;
   }
+  if(isTwoPair(cards)) {
+    return poker.handCategory.TWO_PAIR;
+  }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
