@@ -49,11 +49,8 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function isFlush(cards) {
-    var suit;
+    var suit = cards[0].suit;
     for(var i = 0; i < cards.length; i++) {
-      if(!suit) {
-        suit = cards[i].suit;
-      }
       if(suit != cards[i].suit) {
         return false;
       }
@@ -63,6 +60,7 @@ poker.core.getHandCategory = function(cards) {
 
   function isStraight(cards) {
     sortByRank(cards);
+    var rank = cards[0].rank;
     for(var i = 0; i < cards.length; i++) {
     }
     return true;
