@@ -63,7 +63,9 @@ poker.core.getHandCategory = function(cards) {
 
   function isStraight(cards) {
     sortByRank(cards);
-    return false;
+    for(var i = 0; i < cards.length; i++) {
+    }
+    return true;
   }
 
   function sortByRank(cards) {
