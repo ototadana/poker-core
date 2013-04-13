@@ -73,6 +73,10 @@ poker.core.getHandCategory = function(cards) {
     return false;
   }
 
+  function getCountsOfRank(cards) {
+    var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  }
+
   function isStraightFlush(cards) {
     return isFlush(cards) && isStraight(cards);
   }
