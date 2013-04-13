@@ -76,6 +76,10 @@ poker.core.getHandCategory = function(cards) {
     return isNumberOfAKind(cards, 2);
   }
 
+  function isTwoPair(cards) {
+    return false;
+  }
+
   function isThreeOfAKind(cards) {
     return isNumberOfAKind(cards, 3);
   }
