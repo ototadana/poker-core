@@ -54,6 +54,9 @@ poker.core.getHandCategory = function(cards) {
       if(!suit) {
         suit = cards[i].suit;
       }
+      if(suit != cards[i].suit) {
+        return false;
+      }
     }
     return true;
   }
