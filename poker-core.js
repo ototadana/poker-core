@@ -37,8 +37,9 @@ poker.core = {};
  */
 poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
-
-
+  if(isRoyalFlush(cards)) {
+    return poker.handCategory.ROYAL_FLUSH;
+  }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
