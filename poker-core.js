@@ -81,6 +81,9 @@ poker.core.getHandCategory = function(cards) {
     var pair = false;
     for(var i = 0; i < counts.length; i++) {
       if(counts[i] == 2) {
+        if(pair) {
+          return true;
+        }
       }
     }
     return false;
