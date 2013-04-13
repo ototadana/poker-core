@@ -35,7 +35,12 @@ poker.core = {};
  * @param {{rank:number, suit:string}[]} cards 手札。
  * @returns poker.handCategory のどれか。
  */
-poker.core.getHandCategory = function() {
+poker.core.getHandCategory = function(cards) {
+  // TODO: ここに処理を実装します。
+
+
+
+  // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
 }
 

@@ -22,7 +22,7 @@
 poker-core.js の poker.core.getHandCategory がこれから実装するファンクションです。  
 最初の [poker-core.js](src/main/js/poker-core.js) は以下のような実装になっています（ほとんど何もしていません）。
 
-    poker.core.getHandCategory = function() {
+    poker.core.getHandCategory = function(cards) {
       return poker.handCategory.HIGH_CARD;
     }
 
