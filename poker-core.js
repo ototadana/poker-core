@@ -55,5 +55,9 @@ poker.core.getHandCategory = function(cards) {
   function isStraight(cards) {
     return false;
   }
+
+  function isRoyal(cards) {
+    return false;
+  }
 }
 
