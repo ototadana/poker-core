@@ -53,6 +53,10 @@ poker.core.getHandCategory = function(cards) {
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
 
+  function isFullHouse(cards) {
+    return false;
+  }
+
   function isFourOfAKind(cards) {
     return false;
   }
