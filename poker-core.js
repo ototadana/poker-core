@@ -61,6 +61,9 @@ poker.core.getHandCategory = function(cards) {
   if(isTwoPair(cards)) {
     return poker.handCategory.TWO_PAIR;
   }
+  if(isOnePair(cards)) {
+    return poker.handCategory.ONE_PAIR;
+  }
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
