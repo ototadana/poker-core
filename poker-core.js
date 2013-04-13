@@ -62,7 +62,11 @@ poker.core.getHandCategory = function(cards) {
   }
 
   function isStraight(cards) {
+    sortByRank(cards);
     return false;
+  }
+
+  function sortByRank(cards) {
   }
 
   function isRoyal(cards) {
