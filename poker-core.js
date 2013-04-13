@@ -77,6 +77,9 @@ poker.core.getHandCategory = function(cards) {
       if(a.rank == 1) {
         return 1;
       }
+      if(b.rank == 1) {
+        return -1;
+      }
       return 0;
     });
   }
