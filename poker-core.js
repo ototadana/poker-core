@@ -75,6 +75,9 @@ poker.core.getHandCategory = function(cards) {
 
   function getCountsOfRank(cards) {
     var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    for(var i = 0; i < cards.length; i++) {
+    }
+    return counts;
   }
 
   function isStraightFlush(cards) {
