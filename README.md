@@ -4,9 +4,9 @@
   
 構成
 ----
-    - src/main/js/poker-core.js               ... これから作成するプログラム
-    - src/test/js/poker-coreTest.js           ... poker-core.js のユニットテスト
-    - src/test/resources/poker-coreTest.html  ... poker-coreTest.js を実行するHTML
+    - poker-core.js          ... これから実装するプログラム
+    - poker-coreTest.js      ... poker-core.js のユニットテスト
+    - poker-coreTest.html    ... poker-coreTest.js を実行するHTML
 
   
 実装の進め方
@@ -38,6 +38,16 @@ QUnit のことを知らなくても、
 このコードを見れば、「ここで何をテストしようとしているのか」と
 「poker.core.getHandCategory の仕様」は理解できると思います。
 
+
+###役の仕様###
+役（ポーカー・ハンド）のテスト仕様は、
+[Wikipedia のポーカー](http://ja.m.wikipedia.org/wiki/ポーカー)
+に沿って作られています。
+
+なお、ジョーカーは使用しない前提です。
+
+
+###やってみよう###
 さてこれで準備は完了です。
 
 あとは、
