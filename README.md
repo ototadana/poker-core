@@ -4,9 +4,9 @@
   
 構成
 ----
-    - src/main/js/poker-core.js               ... これから作成するプログラム
-    - src/test/js/poker-coreTest.js           ... poker-core.js のユニットテスト
-    - src/test/resources/poker-coreTest.html  ... poker-coreTest.js を実行するHTML
+    - poker-core.js          ... これから実装するプログラム
+    - poker-coreTest.js      ... poker-core.js のユニットテスト
+    - poker-coreTest.html    ... poker-coreTest.js を実行するHTML
 
   
 実装の進め方
