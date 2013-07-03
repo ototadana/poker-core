@@ -20,19 +20,19 @@
 
 ###実装の進め方###
 poker-core.js の poker.core.getHandCategory がこれから実装するファンクションです。  
-最初の [poker-core.js](src/main/js/poker-core.js) は以下のような実装になっています（ほとんど何もしていません）。
+最初の [poker-core.js](poker-core.js) は以下のような実装になっています（ほとんど何もしていません）。
 
     poker.core.getHandCategory = function(cards) {
       return poker.handCategory.HIGH_CARD;
     }
 
 が、いきなり poker-core.js を修正するのではなく、
-まず、[poker-coreTest.html](src/test/resources/poker-coreTest.html) をブラウザで開いてください。  
-poker-coreTest.html を開くと、[poker-coreTest.js](src/test/js/poker-coreTest.js)
+まず、[poker-coreTest.html](poker-coreTest.html) をブラウザで開いてください。  
+poker-coreTest.html を開くと、[poker-coreTest.js](poker-coreTest.js)
 に記述されたユニットテストが実行されます。
 （ほとんどのテストケースがエラーになることが確認できると思います）。
 
-次に、[poker-coreTest.js](src/test/js/poker-coreTest.js) をテキストエディタで開いてみてください。
+次に、[poker-coreTest.js](poker-coreTest.js) をテキストエディタで開いてみてください。
 poker-coreTest.js は [QUnit](http://qunitjs.com/) の形式で書かれていますが、
 QUnit のことを知らなくても、
 このコードを見れば、「ここで何をテストしようとしているのか」と
