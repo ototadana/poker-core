@@ -41,7 +41,7 @@ QUnit のことを知らなくても、
 
 ###役の仕様###
 役（ポーカー・ハンド）のテスト仕様は、
-[Wikipedia のポーカー](http://ja.m.wikipedia.org/wiki/ポーカー)
+[Wikipedia のポーカー](http://ja.wikipedia.org/wiki/ポーカー)
 に沿って作られています。
 
 なお、ジョーカーは使用しない前提です。
