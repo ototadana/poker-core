@@ -40,7 +40,11 @@ poker.core.getHandCategory = function(cards) {
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   if (isRoyalFlush() == true) {return poker.handCategory.ROYAL_FLUSH;}
   if (isStraightFlush() == true) {return poker.handCategory.STRAIGHT_FLUSH;}
-  if (isFourOfAKnd() == true) {return poker.handCategory.FOUR_OF_A_KIND;}
+  if (isFourOfAKind() == true) {return poker.handCategory.FOUR_OF_A_KIND;}
+  if (isThreeOfAKind() == true) {return poker.handCategory.THREE_OF_A_KIND;}
+  if (isStraight() == true ) { return poker.handCategory.STRAIGHT; }
+  if (isFlush() == true) { return poker.handCategory.FLUSH; }
+  if (isFullHouse() == true ){ return poker.handCategory.FULL_HOUSE; }
   
   if (isTwoPair() == true) {return poker.handCategory.TWO_PAIR;}
   if (isOnePair() == true){return poker.handCategory.ONE_PAIR;}
@@ -52,6 +56,6 @@ poker.core.getHandCategory = function(cards) {
 
   function isRoyalFlush(){return false;}
   function isStraightFlush(){return false;}
-  function isFourOfAKnd(){return false;}
+  function isFourOfAKind(){return false;}
   function isTwoPair(){return false;}
   function isOnePair(){return false;}
