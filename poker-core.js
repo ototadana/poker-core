@@ -62,3 +62,18 @@ poker.core.getHandCategory = function(cards) {
   function　isFlush(){return false;}
   function　isFullHouse(){return false;}
   function　isThreeOfAKind(){return false;}
+
+/*
+ * 同種のカード（ペア）の枚数を取り出す。{番号:枚数, ... }が返る。
+ */
+poker.core.getPairs = function(cards) {
+  var rval = new Array();
+  for (var i = 0; i < cards.length; i++) {
+    if (cards[i].rank in rval) {
+      rval[cards[i].rank] += 1;
+    } else {
+      rval[cards[i].rank] = 1;
+    }
+    return rval;
+  }
+}  
