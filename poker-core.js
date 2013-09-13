@@ -34,7 +34,7 @@ poker.core = {};
  *
  * @param {{rank:number, suit:string}[]} cards 手札。
  * @returns poker.handCategory のどれか。
- */
+ */isRoyalFlush()
 poker.core.getHandCategory = function(cards) {
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
@@ -50,7 +50,6 @@ poker.core.getHandCategory = function(cards) {
   if (isOnePair() == true){return poker.handCategory.ONE_PAIR;}
 
 
-
   return poker.handCategory.HIGH_CARD;
 }
 
@@ -59,3 +58,7 @@ poker.core.getHandCategory = function(cards) {
   function isFourOfAKind(){return false;}
   function isTwoPair(){return false;}
   function isOnePair(){return false;}
+  function　isStraight(){return false;}
+  function　isFlush(){return false;}
+  function　isFullHouse(){return false;}
+  function　isThreeOfAKind(){return false;}
