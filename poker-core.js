@@ -46,5 +46,12 @@ poker.core.getHandCategory = function(cards) {
   if (isOnePair() == true){return poker.handCategory.ONE_PAIR;}
 
 
+
   return poker.handCategory.HIGH_CARD;
 }
+
+  function isRoyalFlush(){return false;}
+  function isStraightFlush(){return false;}
+  function isFourOfAKnd(){return false;}
+  function isTwoPair(){return false;}
+  function isOnePair(){return false;}
