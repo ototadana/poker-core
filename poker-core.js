@@ -53,11 +53,11 @@ poker.core.getHandCategory = function(cards) {
   return poker.handCategory.HIGH_CARD;
 }
 
-  function isRoyalFlush(){return false;}
-  function isStraightFlush(){return false;}
-  function isFourOfAKind(){return false;}
-  function isTwoPair(){return false;}
-  function isOnePair(){return false;}
+  function isRoyalFlush(cards){return false;}
+  function isStraightFlush(cards){return false;}
+  function isFourOfAKind(cards){return false;}
+  function isTwoPair(cards){return false;}
+  function isOnePair(cards){return false;}
   function　isStraight(){return false;}
   function　isFlush(){return false;}
   function　isFullHouse(){return false;}
