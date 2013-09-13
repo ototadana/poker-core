@@ -58,10 +58,10 @@ poker.core.getHandCategory = function(cards) {
   function isFourOfAKind(cards){return false;}
   function isTwoPair(cards){return false;}
   function isOnePair(cards){return false;}
-  function　isStraight(){return false;}
-  function　isFlush(){return false;}
-  function　isFullHouse(){return false;}
-  function　isThreeOfAKind(){return false;}
+  function　isStraight(cards){return false;}
+  function　isFlush(cards){return false;}
+  function　isFullHouse(cards){return false;}
+  function　isThreeOfAKind(cards){return false;}
 
 /*
  * 同種のカード（ペア）の枚数を取り出す。{番号:枚数, ... }が返る。
