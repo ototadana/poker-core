@@ -36,18 +36,18 @@ poker.core = {};
  * @returns poker.handCategory のどれか。
  */isRoyalFlush()
 poker.core.getHandCategory = function(cards) {
-
+isFlush(cards);
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
-  if (isRoyalFlush() == true) {return poker.handCategory.ROYAL_FLUSH;}
-  if (isStraightFlush() == true) {return poker.handCategory.STRAIGHT_FLUSH;}
-  if (isFourOfAKind() == true) {return poker.handCategory.FOUR_OF_A_KIND;}
-  if (isThreeOfAKind() == true) {return poker.handCategory.THREE_OF_A_KIND;}
-  if (isStraight() == true ) { return poker.handCategory.STRAIGHT; }
-  if (isFlush() == true) { return poker.handCategory.FLUSH; }
-  if (isFullHouse() == true ){ return poker.handCategory.FULL_HOUSE; }
+  if (isRoyalFlush(cards)) {return poker.handCategory.ROYAL_FLUSH;}
+  if (isStraightFlush(cards)) {return poker.handCategory.STRAIGHT_FLUSH;}
+  if (isFourOfAKind(cards)) {return poker.handCategory.FOUR_OF_A_KIND;}
+  if (isThreeOfAKind(cards)) {return poker.handCategory.THREE_OF_A_KIND;}
+  if (isStraight(cards) ) { return poker.handCategory.STRAIGHT; }
+  if (isFlush(cards)) { return poker.handCategory.FLUSH; }
+  if (isFullHouse(cards) ){ return poker.handCategory.FULL_HOUSE; }
   
-  if (isTwoPair() == true) {return poker.handCategory.TWO_PAIR;}
-  if (isOnePair() == true){return poker.handCategory.ONE_PAIR;}
+  if (isTwoPair(cards)) {return poker.handCategory.TWO_PAIR;}
+  if (isOnePair(cards)){return poker.handCategory.ONE_PAIR;}
 
 
   return poker.handCategory.HIGH_CARD;
@@ -59,7 +59,7 @@ poker.core.getHandCategory = function(cards) {
   function isTwoPair(cards){return true;}
   function isOnePair(cards){return true;}
   function　isStraight(cards){return false;}
-  function　isFlush(cards){return false;}
+  // function　isFlush(cards){return false;}
   function　isFullHouse(cards){return false;}
   function　isThreeOfAKind(cards){return false;}
 
@@ -78,4 +78,16 @@ poker.core.getPairs = function(cards) {
   }
 }  
 
-
+/**
+ * フラッシュを判定するメソッド
+ * @param cards かーど
+ * @return とるー/ふぉるす
+ */
+function isFlush(cards) {
+  console.log("isFlush");
+  var isSuccess = false;
+  if (cards[0].suit === cards[1].suit && cards[1].suit === cards[2].suit && cards[2].suit === cards[3].suit && cards[3].suit === cards[4].suit) {
+    isSuccess = true;
+  }
+  return isSuccess;
+}
