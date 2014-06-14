@@ -1,0 +1,19 @@
+{
+  "name": "devnomi-poker-core",
+  "version": "2014.0.0",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "load-grunt-tasks": "^0.5.0",
+    "jshint": "^2.5.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-newer": "^0.7.0",
+    "jshint-json": "^0.1.2",
+    "jshint-junit-reporter": "0.0.6"
+  }
+}

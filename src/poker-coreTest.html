@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>poker-core.js</title>
+  <link rel="stylesheet" href="/bower_components/qunit/qunit/qunit.css">
+</head>
+<body>
+  <div id="tab"><span id="board-title" class="selected">得点</span><span id="test-detail">詳細</span></div>
+  <div id="board">
+    <div id="jshint">
+      <div id="jshint-title" >JSHint</div>
+      <pre id="jshint-data" style="border:solid gray 1px"></pre>
+    </div>
+    <div>
+      <div id="result">
+        <ul>
+          <li data-point="7"><span class="check">&#10005;</span> <span class="hand">ワンペア</span></li>
+          <li data-point="8"><span class="check">&#10005;</span> <span class="hand">ツーペア</span></li>
+          <li data-point="9"><span class="check">&#10005;</span> <span class="hand">スリー・オブ・ア・カインド</span></li>
+          <li data-point="10"><span class="check">&#10005;</span> <span class="hand">ストレート</span></li>
+          <li data-point="11"><span class="check">&#10005;</span> <span class="hand">フラッシュ</span></li>
+          <li data-point="12"><span class="check">&#10005;</span> <span class="hand">フルハウス</span></li>
+          <li data-point="13"><span class="check">&#10005;</span> <span class="hand">フォー・オブ・ア・カインド</span></li>
+          <li data-point="14"><span class="check">&#10005;</span> <span class="hand">ストレートフラッシュ</span></li>
+          <li data-point="15"><span class="check">&#10005;</span> <span class="hand">ロイヤルストレートフラッシュ</span></li>
+          <li data-point="1"><span class="check">&#10005;</span> <span class="hand">ハイカード</span></li>
+        </ul>
+      </div>
+      <div id="score-board">
+        <span id="score">0</span>
+        <span id="score-prefix">点</span>
+      </div>
+    </div>
+  </div>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/qunit/qunit/qunit.js"></script>
+  <script src="./poker-core.js"></script>
+  <script src="./poker-coreTest.js"></script>
+  <script>
+    QUnit.done(function() {
+      $.ajax({
+        url: "/report/jshint-junit-output.xml",
+        success: function(data) {
+          var text = $.trim($(data).find("failure").text());
+          $("#jshint-data").html(text);
+          if(text) {
+            $("#jshint").show();
+          }
+          updateScoreBoard(text);
+        }
+      });
+
+      function updateScoreBoard(jshintError) {
+        var point = (jshintError)? -100 : 0;
+        $("#qunit-tests > li").each(function(){
+          var index = $("#qunit-tests > li").index(this);
+          var $target = $("#result li").eq(index);
+          $target.removeClass("pass");
+          if($(this).hasClass("pass")) {
+            $target.addClass("pass");
+            $target.find(".check").html("&#10004;");
+            point += parseInt($target.data("point"));
+          }
+        });
+        $("#score").text(point);
+        $("#score-board").css("color", (point < 0)? "red" : "navy");
+      }
+    });
+
+    $(function() {
+      $("#tab span").click(function(){
+        $("#tab span").toggleClass("selected");
+        $("#board").toggle();
+        $("#qunit").toggle();
+      });
+    });
+  </script>
+  <style>
+    body {
+      background-color: #222222;
+      font-family:'Lucida Grande', Meiryo, sans-serif;
+    }
+    #tab {
+      font-size: 2em;
+    }
+    #tab span {
+      padding: 0 0.4em;
+      border-radius: 5px 5px 0 0;
+      color: #888888;
+      background-color: darkgray;
+      margin-right: 1px;
+      cursor: pointer;
+    }
+    #tab span.selected {
+      color: black;
+      background-color: #f0f0f0;
+    }
+    #tab span:hover {
+      color: black;
+    }
+    #board {
+      overflow: hidden;
+      border-radius: 0 5px 5px 5px;
+      border: solid 1px #f0f0f0;
+      background-color: #f0f0f0;
+    }
+    #jshint {
+      display: none;
+    }
+    #jshint-title {
+      padding: 0.5em 0 0.5em 1em;
+      color: black;
+      background-color: #EE5757;
+      font-size: 1em;
+      line-height: 1em;
+      font-weight: bold;
+      border-radius: 0 5px 0 0;
+      margin-bottom: 0px;
+    }
+    #jshint-data {
+      margin-top: 0px;
+      padding: 0.5em 1em;
+      background-color: #333333;
+      color: white;
+      font-size: 1.6em;
+    }
+    #score-prefix {
+      font-size: 2em;
+    }
+    #score {
+      text-decoration: underline;
+      font-size: 6em;
+    }
+    #result {
+      float: left;
+    }
+    #score-board {
+      float: right;
+      margin-right: 20px;
+    }
+    #result ul {
+      list-style-type: none;
+    }
+    #result li {
+      font-size: 1.2em;
+      color: lightgray;
+    }
+    #result li.pass {
+      color: navy;
+      font-weight: bold;
+    }
+    #qunit {
+      display: none;
+    }
+  </style>
+</body>
+</html>
