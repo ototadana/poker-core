@@ -33,9 +33,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc',
         force: true,
         reporter: require('jshint-junit-reporter'),
-        reporterOutput: "report/jshint-junit-output.xml",
-        //reporter: require('jshint-json'),
-        //reporterOutput: "report/jshint.json",
+        reporterOutput: "report/jshint-junit-output.xml"
       },
       all: [
         'src/poker-core.js'
