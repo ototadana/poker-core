@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: {
-          open: 'http://localhost:9999/src/poker-coreTest.html'
+          open: 'http://localhost:9999/src/poker-coreTest.html?coverage=true'
         }
       }
     },
