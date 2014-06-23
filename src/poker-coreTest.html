@@ -15,21 +15,28 @@
     <div>
       <div id="result">
         <ul>
-          <li data-point="7"><span class="check">&#10005;</span> <span class="hand">ワンペア</span></li>
-          <li data-point="8"><span class="check">&#10005;</span> <span class="hand">ツーペア</span></li>
-          <li data-point="9"><span class="check">&#10005;</span> <span class="hand">スリー・オブ・ア・カインド</span></li>
-          <li data-point="10"><span class="check">&#10005;</span> <span class="hand">ストレート</span></li>
-          <li data-point="11"><span class="check">&#10005;</span> <span class="hand">フラッシュ</span></li>
-          <li data-point="12"><span class="check">&#10005;</span> <span class="hand">フルハウス</span></li>
-          <li data-point="13"><span class="check">&#10005;</span> <span class="hand">フォー・オブ・ア・カインド</span></li>
-          <li data-point="14"><span class="check">&#10005;</span> <span class="hand">ストレートフラッシュ</span></li>
-          <li data-point="15"><span class="check">&#10005;</span> <span class="hand">ロイヤルストレートフラッシュ</span></li>
-          <li data-point="1"><span class="check">&#10005;</span> <span class="hand">ハイカード</span></li>
+          <li data-point="7"><span class="check">&#10005;</span> <span class="hand">ワンペア</span> (<span class="point"></span>)</li>
+          <li data-point="8"><span class="check">&#10005;</span> <span class="hand">ツーペア</span> (<span class="point"></span>)</li>
+          <li data-point="9"><span class="check">&#10005;</span> <span class="hand">スリー・オブ・ア・カインド</span> (<span class="point"></span>)</li>
+          <li data-point="10"><span class="check">&#10005;</span> <span class="hand">ストレート</span> (<span class="point"></span>)</li>
+          <li data-point="11"><span class="check">&#10005;</span> <span class="hand">フラッシュ</span> (<span class="point"></span>)</li>
+          <li data-point="12"><span class="check">&#10005;</span> <span class="hand">フルハウス</span> (<span class="point"></span>)</li>
+          <li data-point="13"><span class="check">&#10005;</span> <span class="hand">フォー・オブ・ア・カインド</span> (<span class="point"></span>)</li>
+          <li data-point="14"><span class="check">&#10005;</span> <span class="hand">ストレートフラッシュ</span> (<span class="point"></span>)</li>
+          <li data-point="15"><span class="check">&#10005;</span> <span class="hand">ロイヤルストレートフラッシュ</span> (<span class="point"></span>)</li>
+          <li data-point="1"><span class="check">&#10005;</span> <span class="hand">ハイカード</span> (<span class="point"></span>)</li>
         </ul>
       </div>
       <div id="score-board">
-        <span id="score">0</span>
-        <span id="score-prefix">点</span>
+        <div>
+          <span id="score">0</span>
+          <span id="score-prefix">点</span>
+        </div>
+        <table id="score-detail">
+          <tr><td>加点</td><td class="point" id="score-plus"></td><td></td></tr>
+          <tr><td>減点</td><td class="point" id="score-minus"></td><td></td></tr>
+          <tr><td>網羅率</td><td class="point" id="score-coverage"></td><td>%</td></tr>
+        </table>
       </div>
     </div>
   </div>
@@ -55,7 +62,7 @@
       });
 
       function updateScoreBoard(jshintError) {
-        var point = (jshintError)? -100 : 0;
+        var point = 0;
         $("#qunit-tests > li").each(function(){
           var index = $("#qunit-tests > li").index(this);
           var $target = $("#result li").eq(index);
@@ -67,8 +74,15 @@
           }
         });
 
+        $("#score-plus").text(point);
+        var minus = (jshintError)? -100 : 0;
+        $("#score-minus").text(minus);
+        var coverage = getCoverage();
+        $("#score-coverage").text(Math.round(coverage * 100));
+
+        point += minus;
         if(point > 0) {
-          point = Math.round(point * getCoverage());
+          point = Math.round(point * coverage);
         }
         $("#score").text(point);
         $("#score-board").css("color", (point < 0)? "red" : "navy");
@@ -81,6 +95,10 @@
     });
 
     $(function() {
+      $("#result li").each(function(){
+        $(this).find("span.point").text($(this).data("point"));
+      });
+
       $("#tab span").click(function(){
         $("#tab span").toggleClass("selected");
         $("#board").toggle();
@@ -150,6 +168,16 @@
     #score-board {
       float: right;
       margin-right: 20px;
+    }
+    #score-detail {
+      color: gray;
+      float: right;
+      text-align: right;
+      font-size: 1.2em;
+      margin: 50px 20px 10px 30px;
+    }
+    #score-detail td.point {
+      padding-left: 10px;
     }
     #result ul {
       list-style-type: none;
