@@ -8,10 +8,6 @@
 <body>
   <div id="tab"><span id="board-title" class="selected">得点</span><span id="test-detail">詳細</span></div>
   <div id="board">
-    <div id="jshint">
-      <div id="jshint-title" >JSHint</div>
-      <pre id="jshint-data" style="border:solid gray 1px"></pre>
-    </div>
     <div>
       <div id="result">
         <ul>
@@ -33,12 +29,16 @@
           <span id="score-prefix">点</span>
         </div>
         <table id="score-detail">
-          <tr><td>加点</td><td class="point" id="score-plus"></td><td></td></tr>
-          <tr><td>減点</td><td class="point" id="score-minus"></td><td></td></tr>
+          <tr><td>得点</td><td class="point" id="score-plus"></td><td></td></tr>
+          <tr><td>ボーナス</td><td class="point" id="score-bonus"></td><td></td></tr>
           <tr><td>網羅率</td><td class="point" id="score-coverage"></td><td>%</td></tr>
         </table>
       </div>
     </div>
+  </div>
+  <div id="jshint">
+    <div id="jshint-title" >JSHint</div>
+    <pre id="jshint-data" style="border:solid gray 1px"></pre>
   </div>
   <div id="qunit"></div>
   <div id="qunit-fixture"></div>
@@ -75,12 +75,12 @@
         });
 
         $("#score-plus").text(point);
-        var minus = (jshintError)? -100 : 0;
-        $("#score-minus").text(minus);
+        var bonus = (jshintError)? 1 : 2;
+        $("#score-bonus").text(jshintError? "なし" : ("x" + bonus));
         var coverage = getCoverage();
         $("#score-coverage").text(Math.round(coverage * 100));
 
-        point += minus;
+        point *= bonus;
         if(point > 0) {
           point = Math.round(point * coverage);
         }
@@ -137,6 +137,7 @@
     }
     #jshint {
       display: none;
+      margin-top:10px;
     }
     #jshint-title {
       padding: 0.5em 0 0.5em 1em;
@@ -145,15 +146,17 @@
       font-size: 1em;
       line-height: 1em;
       font-weight: bold;
-      border-radius: 0 5px 0 0;
+      border-radius: 5px 5px 0 0;
       margin-bottom: 0px;
     }
     #jshint-data {
       margin-top: 0px;
+      margin-bottom: 0px;
       padding: 0.5em 1em;
       background-color: #333333;
       color: white;
       font-size: 1.6em;
+      border-radius: 0 0 5px 5px;
     }
     #score-prefix {
       font-size: 2em;
