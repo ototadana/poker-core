@@ -38,6 +38,14 @@ poker.core = {};
 poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
 
+  // 事前準備
+  sorted = cards.sort(function(a,b){return (a.rank>b.rank)?1:(a.rank==b.rank)?0:-1; });
+  diffs = [];
+  for (i=0; i<4; i++) { diffs.append(sorted[i+1].number - sorted[i].number); }
+  suit = {};
+  suit["♣"] = suit["♦"] = suit["♥"] = suit["♠"] = 0;
+
+  // ROYAL_FLASH など
 
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
