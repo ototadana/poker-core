@@ -37,7 +37,7 @@ poker.core = {};
  */
 poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
-  var heart = initalize(cards);
+  var heart = poker.core.countHearts(cards);
 
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
@@ -45,10 +45,15 @@ poker.core.getHandCategory = function(cards) {
 };
 
 
-poker.core.initalize=function(cards){
+poker.core.countHearts=function(cards){
   var mark;
   for(var i =1; i < 14; i++){
     mark[i]=0;
   }
+  for(i = 0; i < cards.length; i++){
+    if(cards[i].suit == "💛"){
+      mark[cards[i].rank]++;
+    }
+  }
   return mark;
-}
+};
