@@ -44,9 +44,18 @@ poker.core.getHandCategory = function(cards) {
   var suit = {};
   cards.forEach(function(a){if (suit[a.suit]) suit[a.suit]++; else suit[a.suit] = 1;});
   var isAllCardsSameSuit = Object.keys(suit).length == 1;
+
+  // Rankごとの枚数
+  var numberOfRanks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  sorted.forEach(function(a){numberOfRanks[a.rank]++});
+
   // 10・J・Q・K・Aの組み合わせで、かつ全て同じマークならば、ロイヤルストレートフラッシュ
+  if(sorted[0].rank === 1 && sorted[1].rank === 10 && sorted[2].rank === 11 && sorted[3].rank === 12 && sorted[4].rank === 13 && isAllCardsSameSuit) return poker.handCategory.ROYAL_FLUSH;
   // 5枚のカードが連番で、なおかつ全て同じマークならば、ストレートフラッシュ
   // 同じ数字のカードが4枚あれば、フォー・オブ・ア・カインド
+  var isFourCards = false;
+  numberOfRanks.forEach(function(a){if(a === 4) isFourCards = true;});
+  if(isFourCards){return poker.handCategory.FOUR_OF_A_KIND;}
   // ワンペアとスリー・オブ・ア・カインドの組み合わせで、フルハウス
   // 5枚全てが同じマークならば、フラッシュ
   if (isAllCardsSameSuit)
