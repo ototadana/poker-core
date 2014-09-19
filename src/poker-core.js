@@ -48,7 +48,7 @@ poker.core.getHandCategory = function(cards) {
   var varIsSameMark = poker.core.isSameMark(cards);
   console.log(varIsSameMark);
   if(varIsSameMark){
-    return poker.handCatefory.FLUSH;
+    return poker.handCategory.FLUSH;
   }
   
 
