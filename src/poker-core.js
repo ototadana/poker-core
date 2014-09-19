@@ -39,11 +39,13 @@ poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
 
   // 事前準備
-  sorted = cards.sort(function(a,b){return (a.rank>b.rank)?1:(a.rank==b.rank)?0:-1; });
+  sorted = cards.sort(function(a,b)
+  {return (a.rank>b.rank)?1:(a.rank==b.rank)?0:-1; });
   diffs = [];
   for (i=0; i<4; i++) { diffs.append(sorted[i+1].number - sorted[i].number); }
   suit = {};
   suit["♣"] = suit["♦"] = suit["♥"] = suit["♠"] = 0;
+  cards.forEach(function(a){suit[a.suit]++;});
 
   // ROYAL_FLASH など
 
