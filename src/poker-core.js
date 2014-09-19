@@ -57,6 +57,7 @@ poker.core.getHandCategory = function(cards) {
   numberOfRanks.forEach(function(a){if(a === 4) isFourCards = true;});
   if(isFourCards){return poker.handCategory.FOUR_OF_A_KIND;}
   // ワンペアとスリー・オブ・ア・カインドの組み合わせで、フルハウス
+  if (numberOfRanks.some(function(d){return d===3;})){return (numberOfRanks.some(function(d){return d===2;}))?poker.handCategory.FULL_HOUSE:poker.handCategory.THREE_OF_A_KIND;}
   // 5枚全てが同じマークならば、フラッシュ
   if (isAllCardsSameSuit)
     return poker.handCategory.FLUSH;
