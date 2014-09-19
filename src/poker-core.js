@@ -41,6 +41,9 @@ poker.core.getHandCategory = function(cards) {
   var spade = poker.core.countHearts(cards,"♠");
   var daia = poker.core.countHearts(cards,"♦");
   var clover = poker.core.countHearts(cards,"♣");
+  
+  
+  
 
 
 
@@ -60,4 +63,15 @@ poker.core.countHearts=function(cards,suit){
     }
   }
   return mark;
+};
+
+poker.core.solveSF = function(cards) {
+
+  var mark, bmark;
+
+  for (var i = 1; i < cards.length; i++) {
+    bmark = cards[i].suit;
+  }
+
+  return poker.handCategory.STRAIGHT_FLUSH;
 };
