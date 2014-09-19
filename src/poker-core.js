@@ -37,9 +37,18 @@ poker.core = {};
  */
 poker.core.getHandCategory = function(cards) {
   // TODO: ここに処理を実装します。
-
+  var heart = initalize(cards);
 
 
   // どの組み合わせにも当てはまらないならば、ハイカードを返す。
   return poker.handCategory.HIGH_CARD;
 };
+
+
+poker.core.initalize=function(cards){
+  var mark;
+  for(var i =1; i < 14; i++){
+    mark[i]=0;
+  }
+  return mark;
+}
