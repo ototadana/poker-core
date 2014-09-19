@@ -42,7 +42,10 @@ poker.core.getHandCategory = function(cards) {
   var daia = poker.core.countHearts(cards,"♦");
   var clover = poker.core.countHearts(cards,"♣");
   
-  
+  var varIsSameMark = isSameMark(cards);
+  if(varIsSameMark=true){
+    return poker.handCatefory.FLUSH;
+  }
   
 
 
@@ -64,14 +67,20 @@ poker.core.countHearts=function(cards,suit){
   }
   return mark;
 };
-
+poker.core.isSameMark= function(cards){
+  var bolvalue=true;
+  var valmark= cards[0].suit;
+  for (var i in cards){
+    if (valmark != cards[i].suit){
+      bolvalue = false;
+      break;
+    }
+  }
+  return bolvalue;
+}
 poker.core.solveSF = function(cards) {
 
-  var mark, bmark;
-
-  for (var i = 1; i < cards.length; i++) {
-    bmark = cards[i].suit;
-  }
-
+  /**  
   return poker.handCategory.STRAIGHT_FLUSH;
+  */
 };
